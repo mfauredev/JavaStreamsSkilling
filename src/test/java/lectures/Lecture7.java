@@ -4,6 +4,7 @@ package lectures;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import beans.Car;
+import beans.Person;
 import com.google.common.collect.ImmutableList;
 import java.math.BigDecimal;
 import java.util.DoubleSummaryStatistics;
@@ -16,7 +17,11 @@ public class Lecture7 {
 
   @Test
   public void count() throws Exception {
-
+    List<Person> persons = MockData.getPeople();
+    long females = persons.stream()
+            .filter(p -> p.getGender().equals("Female"))
+            .count();
+    System.out.println(females);
   }
 
   @Test

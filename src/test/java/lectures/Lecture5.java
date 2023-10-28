@@ -25,6 +25,10 @@ public class Lecture5 {
   public void ourFirstMapping() throws Exception {
     // transform from one data type to another
     List<Person> people = MockData.getPeople();
+    people.stream()
+            .map(person -> new PersonDTO(person.getId(),person.getFirstName() ,person.getAge())
+            ).collect(Collectors.toList())
+            .forEach(System.out::println);
 
   }
 

@@ -28,5 +28,10 @@ public class Lecture1 {
   public void declarativeApproachUsingStreams() throws Exception {
     ImmutableList<Person> people = MockData.getPeople();
 
+    people.stream()
+            .filter(person -> person.getAge() <= 18)
+            .limit(10)
+            .forEach(System.out::println);
+
   }
 }
